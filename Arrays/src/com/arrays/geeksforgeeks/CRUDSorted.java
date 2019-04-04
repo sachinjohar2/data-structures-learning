@@ -19,7 +19,31 @@ public class CRUDSorted {
         return -1;
     }
 
-    public static int insert(int[] arr, int element) {
+    public static int insert(int[] arr, int element, int n) {
+        Integer index = null;
+        int length = arr.length;
+        if(arr[0] > element){
+            index = 0;
+        }
+
+        if(arr[length-1] < element){
+            index = length;
+        }
+
+        for(int i=0; i< length -1; i++){
+
+            if(arr[i] < element  && arr[i+1] > element){
+                index = i+1;
+            }
+        }
+        if(index != null) {
+            arr[index] = element;
+            for (int i = index + 1; i < length -1; i++) {
+                arr[i+1] =arr[i];
+            }
+        }
+
+
         return -1;
     }
 
