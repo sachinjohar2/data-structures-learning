@@ -8,10 +8,13 @@ public class MaxSumWithNoAdjacent {
 
         int incl = arr[0];
         int excl = 0;
+        int excl_new =0;
 
         for(int i=1; i< n; i++) {
-            excl = Math.max(incl, excl);
-            incl = Math.max(excl, arr[i]);
+            excl_new = Math.max(incl, excl);
+
+            incl = excl+ arr[i];
+            excl = excl_new;
         }
 
         System.out.println(Math.max(incl, excl));
